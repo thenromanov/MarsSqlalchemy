@@ -15,3 +15,13 @@ class Jobs(SqlAlchemyBase):
     startDate = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.datetime.now)
     endDate = sqlalchemy.Column(sqlalchemy.DateTime, default=None)
     isFinished = sqlalchemy.Column(sqlalchemy.Boolean, default=True)
+
+    def __init__(self, **kwargs):
+        self.id = kwargs.get('id')
+        self.teamLeader = kwargs.get('teamLeader')
+        self.job = kwargs.get('job')
+        self.workSize = kwargs.get('workSize')
+        self.collaborators = kwargs.get('collaborators')
+        self.startDate = kwargs.get('startDate')
+        self.endDate = kwargs.get('endDate')
+        self.isFinished = kwargs.get('isFinished')

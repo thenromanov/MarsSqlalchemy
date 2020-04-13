@@ -1,7 +1,7 @@
 from flask import Flask
 from data import dbSession
-from data.users import *
-from data.jobs import *
+from data.users import User
+from data.jobs import Jobs
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecretkey'
@@ -18,10 +18,14 @@ def main():
                  speciality='magnetologist', address='module_1', email='burgess@mars.org')
     user4 = User(surname='Huxley', name='Aldous', age=38, position='astrologist',
                  speciality='pilot', address='module_1', email='huxley@mars.org')
+    job = Jobs(teamLeader=1, job='deployment of residential modules 1 and 2',
+               workSize=15, collaborators='1, 2', isFinished=False)  # startDate не указываю, т.к. по дефолту заполняется временем в данный момент
+
     session.add(user1)
     session.add(user2)
     session.add(user3)
     session.add(user4)
+    session.add(job)
     session.commit()
     app.run()
 
