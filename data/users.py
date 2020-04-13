@@ -29,3 +29,6 @@ class User(SqlAlchemyBase):
         self.email = kwargs.get('email')
         self.hashedPassword = kwargs.get('hashedPassword')
         self.modifiedDate = kwargs.get('modifiedDate')
+
+    def __repr__(self):
+        return f'<Colonist> {str(self.id)} {str(self.name)} {str(self.surname)}'

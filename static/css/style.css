@@ -1,0 +1,16 @@
+div.container {
+  background-color: lightgrey;
+  border: 2px groove grey;
+  border-radius: 5px;
+  font-size: 16pt;
+}
+
+div.head {
+  border: 2px groove grey;
+}
+
+div.body {
+  border: 2px groove grey;
+  background-color: paleturquoise;
+  font-size: 16pt;
+}
