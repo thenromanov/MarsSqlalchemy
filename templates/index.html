@@ -13,7 +13,9 @@
             </div>
             <div class="row">
                 <div class="col-xl-4 body">{{ job.job }}</div>
-                <div class="col-xl-2 body">{{ job.teamLeader }}</div>
+                <div class="col-xl-2 body">
+                    {% for user in users %}{% if user.id == job.teamLeader%}{{ user.surname }} {{ user.name }}{% endif %}{% endfor %}
+                </div>
                 <div class="col-xl-2 body">{{ job.workSize }}</div>
                 <div class="col-xl-2 body">{{ job.collaborators }}</div>
                 <div class="col-xl-2 body">Is{% if job.isFinished == False %} not {% endif%} finished</div>

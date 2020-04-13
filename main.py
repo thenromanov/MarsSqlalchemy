@@ -10,8 +10,9 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 @app.route('/')
 def index():
     session = dbSession.createSession()
+    users = session.query(User).all()
     jobs = session.query(Jobs).all()
-    return render_template('index.html', jobs=jobs)
+    return render_template('index.html', users=users, jobs=jobs)
 
 
 def main():
